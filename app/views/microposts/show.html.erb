@@ -1,0 +1,8 @@
+<h1><%= @micropost.title %></h1>
+
+<ul>
+  <li><%= @micropost.content %></li>
+  <% if @current_user == @micropost.user %>
+    <li><%= @micropost.word %></li>
+  <% end %>
+</ul>
