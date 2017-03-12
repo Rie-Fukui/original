@@ -6,3 +6,21 @@
     <li><%= @micropost.word %></li>
   <% end %>
 </ul>
+
+<% if @micropost.finish == false %>
+  <%= form_for(@answer, url: answer_micropost_path(@micropost), html: {method: :post}) do |f| %>
+  
+    <%= f.label :text %>
+    <%= f.text_field :text %><br>
+  
+    <%= f.submit %>
+  <% end %>
+<% else %>
+  <h4>このゲームは終了しました。</h4>
+<% end %>
+
+<ul>
+<% @answers.each do |answer| %>
+  <li><%= answer.text %></li>
+<% end %>
+</ul>
